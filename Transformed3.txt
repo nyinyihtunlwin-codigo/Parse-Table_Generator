@@ -1,0 +1,32 @@
+program->slist END
+slist->LINE slist'
+slist'->statement LINE slist'
+ |LINE slist'
+ |@
+statement->ASSIGN expression
+ |GOTO
+ |IF expression RELATIONAL_OPERATOR expression if_jump
+ |GOSUB
+ |RETURN
+ |for_statement slist NEXT
+ |COMMENT
+if_jump->GOTO
+for_statement->for_clause to_clause STEP expression
+ |for_clause to_clause
+for_clause->FOR expression
+to_clause->TO expression
+expression->+ term expression'
+ |_ term expression'
+ |term expression'
+expression'->+ term expression'
+ |_ term expression'
+ |@
+term->factor term'
+term'->* factor term'
+ |/ factor term'
+ |@
+factor->primary factor'
+factor'->pow primary factor'
+ |@
+primary->( expression )
+ |OPERAND

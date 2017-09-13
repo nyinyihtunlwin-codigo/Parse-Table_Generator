@@ -1,0 +1,5 @@
+E->E + T
+E->T
+T->A + B
+A->id
+B->alpha

@@ -1,0 +1,5 @@
+Goal->program
+program->slist END
+slist->slist statement LINE
+ |slist LINE
+ |LINE

@@ -1,0 +1,10 @@
+Goal->Expr
+Expr->Expr + Term
+    |Expr m Term
+    |Term
+Term->Term x Factor
+    |Term / Factor
+    |Factor
+Factor->( Expr )
+    |num
+    |name        
